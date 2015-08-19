@@ -10,5 +10,18 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+    <!-- Guacamole Tunnel Servlet -->
+    <servlet>
+        <description>Tunnel servlet.</description>
+        <servlet-name>Tunnel</servlet-name>
+        <servlet-class>
+            com.persistent.guacamoleClientGS.GuacamoleTunnelServlet
+        </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Tunnel</servlet-name>
+        <url-pattern>/tunnel</url-pattern>
+    </servlet-mapping>
 
 </web-app>
