@@ -7,9 +7,11 @@
                         http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
     <!-- Basic config -->
+    <!--
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+    -->
     <!-- Guacamole Tunnel Servlet -->
     <servlet>
         <description>Tunnel servlet.</description>
@@ -24,4 +26,16 @@
         <url-pattern>/tunnel</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <description>Parse Data</description>
+        <servlet-name>first</servlet-name>
+        <servlet-class>
+            com.persistent.guacamoleClientGS.First
+        </servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>first</servlet-name>
+        <url-pattern>/first</url-pattern>
+    </servlet-mapping>
 </web-app>

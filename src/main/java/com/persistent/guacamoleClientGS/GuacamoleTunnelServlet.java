@@ -2,6 +2,7 @@ package com.persistent.guacamoleClientGS;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.glyptodon.guacamole.GuacamoleException;
 import org.glyptodon.guacamole.net.SimpleGuacamoleTunnel;
 import org.glyptodon.guacamole.net.GuacamoleSocket;
@@ -13,23 +14,35 @@ import org.glyptodon.guacamole.servlet.GuacamoleHTTPTunnelServlet;
 import org.glyptodon.guacamole.servlet.GuacamoleSession;
 
 public class GuacamoleTunnelServlet
-    extends GuacamoleHTTPTunnelServlet {
+        extends GuacamoleHTTPTunnelServlet {
 
     @Override
     protected GuacamoleTunnel doConnect(HttpServletRequest request)
-        throws GuacamoleException {
+            throws GuacamoleException {
+
+        System.out.println("HOST NAME IS ----: " + request.getParameter("hostname") +
+                "\t" + request.getParameter("hostname") +
+                "\t" + request.getParameter("port") +
+                "\t" + request.getParameter("vmconnect") +
+                "\t" + request.getParameter("domain") +
+                "\t" + request.getParameter("ignore-cert") +
+                "\t" + request.getParameter("security") +
+                "\t" + request.getParameter("username") +
+                "\t" + request.getParameter("username"));
+
+
 
         // Create our configuration
         GuacamoleConfiguration config = new GuacamoleConfiguration();
         config.setProtocol("rdp");
-        config.setParameter("hostname", "10.44.96.116");
-	config.setParameter("port", "2179");
-	config.setParameter("vmconnect", "3c8edc2f-c1ac-4650-8de2-869c65c63998");	
-	config.setParameter("domain", "CONVIRTURE");
-	config.setParameter("ignore-cert", "true");
-	config.setParameter("security", "nla");
-	config.setParameter("username", "Adwait_Patankar");
-        config.setParameter("password", "Test@123");
+        config.setParameter("hostname", request.getParameter("hostname"));
+        config.setParameter("port", request.getParameter("port"));
+        config.setParameter("vmconnect", request.getParameter("vmconnect"));
+        config.setParameter("domain", request.getParameter("domain"));
+        config.setParameter("ignore-cert", request.getParameter("ignore-cert"));
+        config.setParameter("security", request.getParameter("security"));
+        config.setParameter("username", request.getParameter("username"));
+        config.setParameter("password", request.getParameter("password"));
 
         // Connect to guacd - everything is hard-coded here.
         GuacamoleSocket socket = new ConfiguredGuacamoleSocket(

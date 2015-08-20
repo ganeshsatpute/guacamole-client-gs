@@ -35,7 +35,8 @@
             };
 
             // Connect
-            guac.connect();
+            var query = "hostname=10.44.96.116&vmconnect=3c8edc2f-c1ac-4650-8de2-869c65c63998&domain=CONVIRTURE&username=Adwait_Patankar&password=Test@123&port=2179&security=nla&ignore-cert=true";
+            guac.connect(query);
 
             // Disconnect on close
             window.onunload = function() {
@@ -46,8 +47,6 @@
 	
 	<!-- Init -->
         <script type="text/javascript"> /* <![CDATA[ */
-
-            ...
 
             // Mouse
             var mouse = new Guacamole.Mouse(guac.getDisplay().getElement());

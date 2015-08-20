@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE HTML>
 
 <html>
@@ -34,8 +37,10 @@
                 alert(error);
             };
 
+            var query = "${string}";
+
             // Connect
-            guac.connect();
+            guac.connect(query);
 
             // Disconnect on close
             window.onunload = function() {
@@ -47,7 +52,6 @@
 	<!-- Init -->
         <script type="text/javascript"> /* <![CDATA[ */
 
-            ...
 
             // Mouse
             var mouse = new Guacamole.Mouse(guac.getDisplay().getElement());
