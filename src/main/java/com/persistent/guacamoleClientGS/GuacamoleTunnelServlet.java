@@ -30,8 +30,6 @@ public class GuacamoleTunnelServlet
                 "\t" + request.getParameter("username") +
                 "\t" + request.getParameter("username"));
 
-
-
         // Create our configuration
         GuacamoleConfiguration config = new GuacamoleConfiguration();
         config.setProtocol("rdp");
